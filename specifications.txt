@@ -1,0 +1,135 @@
+TIME8SHARE - SPÉCIFICATIONS FONCTIONNELLES DÉTAILLÉES
+=================================================
+
+1. PRÉSENTATION GÉNÉRALE
+------------------------
+Time8Share est une plateforme d'échange de services basée sur le temps comme monnaie d'échange. Les utilisateurs peuvent donner et recevoir des services, mesurés en blocs de 8 minutes.
+
+2. FONCTIONNALITÉS PRINCIPALES
+-----------------------------
+
+2.1. Gestion des Utilisateurs
+- Inscription avec email/mot de passe ou Google
+- Connexion/déconnexion
+- Profil utilisateur avec statistiques :
+  * Solde de temps disponible
+  * Note moyenne
+  * Nombre de services donnés/reçus
+- Chaque nouvel utilisateur reçoit 40 minutes (5 blocs) initialement
+
+2.2. Services
+- Création de services avec :
+  * Titre
+  * Description
+  * Catégorie
+  * Durée en blocs de 8 minutes
+- Catégories disponibles :
+  * Aide à la personne
+  * Culture et loisirs
+  * Services domestiques
+  * Services numériques
+  * Éducation
+  * Administratif
+  * Bien-être
+  * Artisanat
+  * Mobilité
+  * Solidarité
+- Recherche et filtrage des services
+- Les utilisateurs ne voient pas leurs propres services dans la liste
+
+2.3. Réservation et Gestion des Tâches
+- Processus de réservation :
+  1. Sélection date et horaire
+  2. Message au prestataire
+  3. Vérification du solde de temps
+  4. Création de la demande
+- États des tâches :
+  * En attente (pending)
+  * Acceptée (accepted)
+  * En cours (in_progress)
+  * Terminée côté prestataire (completed_provider)
+  * Terminée côté bénéficiaire (completed_beneficiary)
+  * Terminée (completed)
+  * Annulée (cancelled)
+- Workflow de complétion :
+  1. Le prestataire marque comme terminé
+  2. Le bénéficiaire confirme et note
+  3. Transfert automatique du temps
+
+2.4. Système de Notation
+- Note de 1 à 5 étoiles
+- Commentaire optionnel
+- Seul le bénéficiaire peut noter
+- Calcul automatique de la moyenne des notes
+- Affichage des notes sur le profil
+
+2.5. Gestion du Temps
+- Unité de base : bloc de 8 minutes
+- Achat de temps possible (1€ = 8 minutes)
+- Transfert automatique lors de la complétion :
+  * Débit du compte bénéficiaire
+  * Crédit du compte prestataire
+
+3. INTERFACE UTILISATEUR
+------------------------
+
+3.1. Navigation Principale
+- Accueil
+- Comment ça marche ?
+- Services
+- Donner (utilisateurs connectés)
+- Profil (utilisateurs connectés)
+
+3.2. Tableau de Bord Profil
+- Vue d'ensemble des statistiques
+- Onglets :
+  * Aperçu
+  * En cours
+  * Historique
+- Notifications des tâches en attente
+
+4. RÈGLES MÉTIER
+----------------
+
+4.1. Sécurité
+- Authentification requise pour :
+  * Créer un service
+  * Réserver un service
+  * Accéder au profil
+  * Gérer les tâches
+- Vérification du solde avant réservation
+- Protection des données personnelles
+
+4.2. Validation des Services
+- Titre et description obligatoires
+- Durée minimum : 1 bloc (8 minutes)
+- Durée maximum : 12 blocs (96 minutes)
+
+4.3. Gestion des Transactions
+- Vérification du solde avant réservation
+- Pas de remboursement automatique
+- Transfert de temps uniquement après confirmation mutuelle
+
+5. ASPECTS TECHNIQUES
+---------------------
+
+5.1. Technologies Utilisées
+- Frontend : React, TypeScript, Tailwind CSS
+- Backend : Firebase (Auth, Firestore)
+- Déploiement : Netlify
+
+5.2. Performance
+- Chargement optimisé des listes
+- Mise à jour en temps réel des statuts
+- Interface responsive (mobile-first)
+
+6. ÉVOLUTIONS FUTURES POSSIBLES
+------------------------------
+- Messagerie intégrée
+- Système de badges/récompenses
+- Géolocalisation des services
+- Application mobile native
+- Système de parrainage
+- Groupes et communautés
+- Système de rappels/notifications
+- Export des données personnelles
